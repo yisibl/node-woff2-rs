@@ -8,35 +8,35 @@ A WOFF2 decompressor converts WOFF2 to TTF or OTF, powered by Rust based [woff2-
 
 ## Features
 
-## Usage
+- Converts WOFF2 to TTF or OTF.
+- Quick to install, no need for node-gyp and postinstall.
+- Cross-platform support, including [Apple M Chips](https://www.apple.com/newsroom/2020/11/apple-unleashes-m1/).
+- Support for running as native addons in Deno.
 
-
-## Install this test package
+## Installation
 
 ```
 npm i woff2-rs
 yarn add woff2-rs
 ```
 
-## Support matrix
+## Usage
 
-### Operating Systems
+```js
+import { promises as fs } from 'fs'
+import path, { join } from 'path'
+import { fileURLToPath } from 'url'
+import woff2Rs from '@woff2/woff2-rs'
 
-|                  | node14 | node16 | node18 |
-| ---------------- | ------ | ------ | ------ |
-| Windows x64      | ✓      | ✓      | ✓      |
-| Windows x32      | ✓      | ✓      | ✓      |
-| Windows arm64    | ✓      | ✓      | ✓      |
-| macOS x64        | ✓      | ✓      | ✓      |
-| macOS arm64      | ✓      | ✓      | ✓      |
-| Linux x64 gnu    | ✓      | ✓      | ✓      |
-| Linux x64 musl   | ✓      | ✓      | ✓      |
-| Linux arm gnu    | ✓      | ✓      | ✓      |
-| Linux arm64 gnu  | ✓      | ✓      | ✓      |
-| Linux arm64 musl | ✓      | ✓      | ✓      |
-| Android arm64    | ✓      | ✓      | ✓      |
-| Android armv7    | ✓      | ✓      | ✓      |
-| FreeBSD x64      | ✓      | ✓      | ✓      |
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.resolve(path.dirname(__filename))
+async function toTTF() {
+  const font = await fs.readFile(join(__dirname, '../__test__/fa-regular-400-v5.15.4.woff2'))
+  const outputBuffer = woff2Rs.decode(font) // output TTF buffer
+  await fs.writeFile(join(__dirname, 'fa-regular-400.ttf'), outputBuffer)
+}
+toTTF()
+```
 
 ## Benchmark
 
@@ -59,6 +59,23 @@ Progress: 100%
   wawoff(Wasm):
     1 501 ops/s, ±0.75%   | slowest, 49.8% slower
 ```
+
+## Support matrix
+
+|                  | Node.js 12 | Node.js 14 | Node.js 16 | Node.js 18 | npm |
+| ---------------- | ---------- | ---------- | ---------- | ---------- | --- |
+| Windows x64      | ✓          | ✓          | ✓          |  ✓         |[![npm version](https://img.shields.io/npm/v/@woff2/woff2-rs-win32-x64-msvc.svg?sanitize=true)](https://www.npmjs.com/package/@woff2/woff2-rs-win32-x64-msvc) |
+| Windows x32      | ✓          | ✓          | ✓          |  ✓         |[![npm version](https://img.shields.io/npm/v/@woff2/woff2-rs-win32-ia32-msvc.svg?sanitize=true)](https://www.npmjs.com/package/@woff2/woff2-rs-win32-ia32-msvc) |
+| Windows arm64    | ✓          | ✓          | ✓          |  ✓         |[![npm version](https://img.shields.io/npm/v/@woff2/woff2-rs-win32-arm64-msvc.svg?sanitize=true)](https://www.npmjs.com/package/@woff2/woff2-rs-win32-arm64-msvc) |
+| macOS x64        | ✓          | ✓          | ✓          |  ✓         |[![npm version](https://img.shields.io/npm/v/@woff2/woff2-rs-darwin-x64.svg?sanitize=true)](https://www.npmjs.com/package/@woff2/woff2-rs-darwin-x64) |
+| macOS arm64(M1)  | ✓          | ✓          | ✓          |  ✓         |[![npm version](https://img.shields.io/npm/v/@woff2/woff2-rs-darwin-arm64.svg?sanitize=true)](https://www.npmjs.com/package/@woff2/woff2-rs-darwin-arm64) |
+| Linux x64 gnu    | ✓          | ✓          | ✓          |  ✓         |[![npm version](https://img.shields.io/npm/v/@woff2/woff2-rs-linux-x64-gnu.svg?sanitize=true)](https://www.npmjs.com/package/@woff2/woff2-rs-linux-x64-gnu) |
+| Linux x64 musl   | ✓          | ✓          | ✓          |  ✓         |[![npm version](https://img.shields.io/npm/v/@woff2/woff2-rs-linux-x64-musl.svg?sanitize=true)](https://www.npmjs.com/package/@woff2/woff2-rs-linux-x64-musl) |
+| Linux arm gnu    | ✓          | ✓          | ✓          |  ✓         |[![npm version](https://img.shields.io/npm/v/@woff2/woff2-rs-linux-arm-gnueabihf.svg?sanitize=true)](https://www.npmjs.com/package/@woff2/woff2-rs-linux-arm-gnueabihf) |
+| Linux arm64 gnu  | ✓          | ✓          | ✓          |  ✓         |[![npm version](https://img.shields.io/npm/v/@woff2/woff2-rs-linux-arm64-gnu.svg?sanitize=true)](https://www.npmjs.com/package/@woff2/woff2-rs-linux-arm64-gnu) |
+| Linux arm64 musl | ✓          | ✓          | ✓          |  ✓         |[![npm version](https://img.shields.io/npm/v/@woff2/woff2-rs-linux-arm64-musl.svg?sanitize=true)](https://www.npmjs.com/package/@woff2/woff2-rs-linux-arm64-musl) |
+| Android arm64    | ✓          | ✓          | ✓          |  ✓         |[![npm version](https://img.shields.io/npm/v/@woff2/woff2-rs-android-arm64.svg?sanitize=true)](https://www.npmjs.com/package/@woff2/woff2-rs-android-arm64) |
+| Android armv7    | ✓          | ✓          | ✓          |  ✓         |[![npm version](https://img.shields.io/npm/v/@woff2/woff2-rs-android-arm-eabi.svg?sanitize=true)](https://www.npmjs.com/package/@woff2/woff2-rs-android-arm-eabi) |
 
 ### Build
 
@@ -99,5 +116,3 @@ npm version minor
 
 git push
 ```
-
-GitHub actions will do the rest job for you.
