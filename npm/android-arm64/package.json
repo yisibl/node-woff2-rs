@@ -1,0 +1,36 @@
+{
+  "name": "@woff2/woff2-rs-android-arm64",
+  "version": "1.0.0",
+  "os": [
+    "android"
+  ],
+  "cpu": [
+    "arm64"
+  ],
+  "main": "woff2-rs.android-arm64.node",
+  "files": [
+    "woff2-rs.android-arm64.node"
+  ],
+  "description": "A WOFF2 decompressor converts WOFF2 to TTF or OTF, powered by Rust based woff2-rs and napi-rs.",
+  "keywords": [
+    "woff2",
+    "woff",
+    "ttf2woff2",
+    "woff2 to ttf",
+    "woff2 converter",
+    "converter",
+    "ttf",
+    "font",
+    "fonts",
+    "rust"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">= 10"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
+  "repository": "git@github.com:yisibl/node-woff2-rs.git"
+}
