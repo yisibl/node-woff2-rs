@@ -25,5 +25,5 @@ lto = true    # Enable Link Time Optimization
 codegen-units = 1
 
 [patch.crates-io]
-# woff2 = { git = "https://github.com/yisibl/woff2-rs", branch = "fix-total-compressed-size" }
-woff2 = { git = "https://github.com/yisibl/woff2-rs", rev = "65c0a0f0" }
+woff2 = { git = "https://github.com/yisibl/woff2-rs", branch = "fix-total-compressed-size" }
+# woff2 = { git = "https://github.com/yisibl/woff2-rs", rev = "65c0a0f0" }
