@@ -16,8 +16,8 @@ A WOFF2 decompressor converts WOFF2 to TTF or OTF, powered by Rust based [woff2-
 ## Installation
 
 ```
-npm i woff2-rs
-yarn add woff2-rs
+npm i @woff2/woff2-rs
+yarn add @woff2/woff2-rs
 ```
 
 ## Usage
