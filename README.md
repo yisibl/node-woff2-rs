@@ -38,7 +38,27 @@ yarn add woff2-rs
 | Android armv7    | ✓      | ✓      | ✓      |
 | FreeBSD x64      | ✓      | ✓      | ✓      |
 
-## Ability
+## Benchmark
+
+```bash
+npm run bench
+
+Running "WOFF2 to TTF (Use Font Awesome)" suite...
+Progress: 50%
+Progress: 100%
+
+  woff2-next(node-gyp binding):
+    2 990 ops/s, ±0.30%   | fastest
+
+  @napi-rs/ttf2woff2(Rust binding):
+    2 396 ops/s, ±0.66%   | 19.87% slower
+
+  @woff2/woff2-rs(Pure Rust):
+    1 934 ops/s, ±0.30%   | 35.32% slower
+
+  wawoff(Wasm):
+    1 501 ops/s, ±0.75%   | slowest, 49.8% slower
+```
 
 ### Build
 
