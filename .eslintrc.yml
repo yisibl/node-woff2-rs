@@ -23,6 +23,7 @@ extends:
 
 rules:
   # 0 = off, 1 = warn, 2 = error
+  'no-empty': 0
   'space-before-function-paren': 0
   'no-useless-constructor': 0
   'no-undef': 2
