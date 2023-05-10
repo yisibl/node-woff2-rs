@@ -1,6 +1,6 @@
 {
   "name": "@woff2/woff2-rs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A WOFF2 decompressor converts WOFF2 to TTF or OTF, powered by Rust based woff2-rs and napi-rs.",
   "main": "index.js",
   "repository": "git@github.com:yisibl/node-woff2-rs.git",
