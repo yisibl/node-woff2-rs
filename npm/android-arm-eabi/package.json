@@ -1,6 +1,6 @@
 {
   "name": "@woff2/woff2-rs-android-arm-eabi",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "os": [
     "android"
   ],
